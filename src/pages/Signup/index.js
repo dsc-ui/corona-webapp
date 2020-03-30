@@ -4,6 +4,7 @@ import Input from '../../components/Input'
 import Button from '@material-ui/core/Button';
 import app from "../../base";
 import './styles.scss';
+import Swal from 'sweetalert2';
 
 export function Signup({ history }){
   let [email, setEmail] = useState('');
@@ -22,11 +23,20 @@ export function Signup({ history }){
             var email_verified = user.emailVerified;
             // Send verification email to the user
           user.sendEmailVerification().then(function() {
-            alert('Email sent successfully');
+            Swal.fire({
+              title: 'Success',
+              text: 'Email sent successfully',
+              icon: 'success'
+            })
             if(email_verified) {
               history.push("/dashboard");
             } else {
               alert('Please verify your email before login')
+              Swal.fire({
+                title: 'VERIFY E-MAIL',
+                text: 'Please verify your email before login',
+                icon: 'error'
+              })
               history.push("/login");
             }
             

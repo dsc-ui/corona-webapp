@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import app from "../../base";
 import { useAuthContext } from '../../auth/Auth';
 import './styles.scss';
+import Swal from 'sweetalert2';
 
 
 export function Login({ history }){
@@ -29,6 +30,11 @@ export function Login({ history }){
               history.push("/report");
             } else {
               alert('Please Verify your email first');
+              Swal.fire({
+                title: 'VERIFY E-MAIL',
+                text: 'Please verify your email before login',
+                icon: 'error'
+              })
             }
           })
         
