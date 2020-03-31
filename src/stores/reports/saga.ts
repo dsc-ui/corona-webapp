@@ -3,6 +3,7 @@ import { ReportActionTypes, Report, GetReportActionType, CreateReportActionType 
 import { getReportRequest, getReportsRequest, createReportRequest } from '../../services/reportsServices';
 import { fetchReportsSuccess, fetchReportsFailure, createNewReportByCitySuccess, createNewReportByCityFailure, fetchSingleReportFailure, fetchSingleReportSuccess } from './actions'
 import Swal from 'sweetalert2';
+import { Redirect } from 'react-router-dom';
 
 function* getReport(action: GetReportActionType){
   const id: string = action.payload.id;
@@ -36,7 +37,7 @@ function* createReport(action: CreateReportActionType){
       text: 'Your Report Is Submitted',
       icon: 'success'
     }).then(() => {
-      // return window.location='/'
+      return window.location.href="/"
     })
   }
 }
