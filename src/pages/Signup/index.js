@@ -50,7 +50,7 @@ export function Signup({ history }){
       <div className="signin">
         <div className="form">
         <h1> Register. </h1>
-        <p> Join us today to reported suspected cases. </p>
+        <p> Join us today to report suspected cases. </p>
         <form onSubmit={handleReg}>
         <Input 
         type="email"
